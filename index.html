@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Sorteio</title>
+
+    <script>
+        let participantes = [];
+
+        function addNewPerson() {
+            let newPerson = document.getElementById("person").value;
+
+            participantes.push(newPerson);
+
+            document.getElementById("allPlayers").innerHTML = participantes;
+            document.getElementById("person").value = "";
+
+        }
+
+
+        function sortear() {
+
+            let numeroPessoas = participantes.length;
+
+            numeroSorteado = Math.floor(Math.random() * participantes.length);
+
+            document.getElementById("display").innerHTML = participantes[numeroSorteado];
+
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+
+    <input id="person" tupe="text" placeholder="Digite o nome do participante">
+    <button id="addNewPerson" onclick="addNewPerson()">Adicionar</button>
+
+    <h1>Sorteado</h1>
+    <h2 id="display"></h2>
+    <p><strong>Participantes</strong></p>
+    <p id="allPlayers"></p>
+    <button onclick="sortear()"> Sortear </button>
+
+</body>
+
+</html>
